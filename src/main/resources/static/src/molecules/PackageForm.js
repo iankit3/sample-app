@@ -81,6 +81,7 @@ const PackageForm = (props) => {
         value={formik.values.description}
       />
       <br />
+      <button type="button" onClick={() => props.setCurrentId(-1)}>Reset</button>
       <button type="submit">Submit</button>
     </form>
   );

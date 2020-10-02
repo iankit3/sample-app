@@ -4,19 +4,20 @@ import Row from "../atoms/Row";
 import Table, { FormField } from "../atoms/Table";
 import { StyledPackageForm } from "../molecules/PackageForm";
 import { PackageContext } from "./context";
+let initialValue = {
+  name: "",
+  age: 0,
+  duration: {
+    days: 0,
+    nights: 0,
+  },
+  validity: 0,
+  description: "",
+};
 
 const PackageViewer = () => {
   const { packages, getPackages, addPackage, deletePackage } = useContext(PackageContext);
-  const [currentValue, setCurrentValue] = useState({
-    name: "",
-    age: 0,
-    duration: {
-      days: 0,
-      nights: 0,
-    },
-    validity: 0,
-    description: "",
-  });
+  const [currentValue, setCurrentValue] = useState(initialValue);
   const [currentId, setCurrentId] = useState(-1);
 
   useEffect(() => {
@@ -28,8 +29,9 @@ const PackageViewer = () => {
       let field = packages.filter((p) => p.id === currentId);
       if (field.length > 0) {
         setCurrentValue(field[0]);
-      }
-    }
+      }else setCurrentValue(initialValue)
+    }else setCurrentValue(initialValue)
+
   }, [currentId]);
 
   return (
@@ -39,6 +41,7 @@ const PackageViewer = () => {
         <StyledPackageForm
           initialValues={currentValue}
           addPackage={addPackage}
+          setCurrentId={setCurrentId}
         />
         <Table>
           <thead>
