@@ -1,5 +1,7 @@
 # RUN
+```sh
 ./mvnw spring-boot:run
+```
 
 # React UI
 - Can run as a standalone using `npm start`
@@ -9,17 +11,13 @@
   - npm start
   - npm run build
 
-#TODO
+# TODO
 - Add tests
 - Add validations
 - better error handling
-- .
-- .
-- .
+- CSS
+- ....
 
-
-# Task
-Fullstack Coding Assignment - F011
 ## Summary
  - Create a web application that displays hotel packages
  - Users of this app can:
